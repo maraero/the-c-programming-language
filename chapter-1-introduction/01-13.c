@@ -33,25 +33,25 @@ int main()
   if (current_word_length > 0)
     ++words[current_word_length];
 
-  int longest_words = 0;
+  int longest_word = 0;
   int greatest_index = 0;
 
   for (i = 0; i < BUFFER; ++i)
   {
-    if (words[i] > longest_words)
-      longest_words = words[i];
+    if (words[i] > longest_word)
+      longest_word = words[i];
     if (words[i] > 0)
       greatest_index = i;
   }
 
-  if (longest_words == 0)
+  if (longest_word == 0)
   {
     printf("There is no words\n");
     return 0;
   }
 
   // Print horizontal histogram
-  printf("Horizontal Histogram\n--------------------\n");
+  printf("\nHorizontal Histogram\n--------------------\n");
 
   int col_index = 1;
   int line_index = 0;
@@ -66,6 +66,38 @@ int main()
     putchar('\n');
     ++col_index;
   }
+
+  // Print vertical histogram
+  printf("\nVertical Histogram\n--------------------\n");
+
+  col_index = 1;
+  line_index = 1;
+
+  while (line_index <= longest_word)
+  {
+    while (col_index <= greatest_index)
+    {
+      if (line_index > longest_word - words[col_index])
+      {
+        printf("   # ");
+      }
+      else
+      {
+        printf("     ");
+      }
+      ++col_index;
+    }
+    printf("\n");
+    col_index = 1;
+    ++line_index;
+  }
+
+  while (col_index <= greatest_index)
+  {
+    printf("%4d ", col_index);
+    ++col_index;
+  }
+  printf("\n");
 
   return 0;
 }
