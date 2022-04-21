@@ -22,6 +22,7 @@ int main()
   }
 
   int j;
+  char symbol;
 
   printf("\n");
 
@@ -29,7 +30,6 @@ int main()
   {
     if (freq[i] > 0)
     {
-      char symbol;
       if (i < LETTERS)
       {
         symbol = 'a' + i;
