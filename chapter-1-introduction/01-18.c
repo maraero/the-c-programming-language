@@ -21,7 +21,7 @@ int main()
         break;
 
     if (line[0] != '\n' && line[0] != '\0')
-      printf("line: %s", line);
+      printf("line: %s\n", line);
 
     // clean char array
     int i;
