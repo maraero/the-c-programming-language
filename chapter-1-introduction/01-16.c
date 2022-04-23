@@ -15,7 +15,7 @@ int main()
   max = 0;
   while ((len = get_line(line, MAXLINE)) > 0)
   {
-    if (len == MAXLINE - 1 && line[3] != '\n')
+    if (len == MAXLINE - 1 && line[MAXLINE - 2] != '\n')
     {
       int c;
       while ((c = getchar()) != EOF && c != '\n')
