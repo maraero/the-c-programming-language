@@ -4,3 +4,5 @@
 
 For test
 `<compiled file> < test.txt > result.txt`
+To use source code itself:
+`cat <source code file> | <compiled file>`
