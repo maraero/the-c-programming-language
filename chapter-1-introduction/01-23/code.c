@@ -3,11 +3,11 @@
 #define NORMAL 0
 #define DOUBLE_SLASH_COMMENT 1
 #define ASTERISK_COMMENT 2
-#define SINGLE_QUOTE 3
-#define DOUBLE_QUOTE 4
+#define DOUBLE_QUOTE 3
+#define SINGLE_QUOTE 4
 
 #define NOT_COMMENT 5
-#define POSSIBLE_COMMENT 6
+#define PROBABLY_COMMENT 6
 #define FINALLY_NOT_COMMENT 7
 
 int main()
@@ -35,8 +35,8 @@ int main()
       if (status == NORMAL)
       {
         if (c == '/' && possibleComment == NOT_COMMENT)
-          possibleComment = POSSIBLE_COMMENT;
-        else if (possibleComment == POSSIBLE_COMMENT)
+          possibleComment = PROBABLY_COMMENT;
+        else if (possibleComment == PROBABLY_COMMENT)
           possibleComment = FINALLY_NOT_COMMENT;
       }
       else
@@ -70,16 +70,16 @@ int main()
         status = NORMAL;
     }
 
-    else if (status == SINGLE_QUOTE)
+    else if (status == DOUBLE_QUOTE)
     {
-      if (prev != '\\' && c == '\'')
+      if (prev != '\\' && c == '"')
         status = NORMAL;
       putchar(c);
     }
 
-    else if (status == DOUBLE_QUOTE)
+    else if (status == SINGLE_QUOTE)
     {
-      if (prev != '\\' && c == '"')
+      if (prev != '\\' && c == '\'')
         status = NORMAL;
       putchar(c);
     }
